@@ -30,7 +30,7 @@
         <div class="cards" id="spectacles-list"></div>
       </div>
     </section>
-    <section class="members" id="membres"><div class="wrap"><p class="overline">03 — La troupe</p><h2 class="section-title">La compagnie</h2><p class="lead">Comédiens, metteuses en scène, techniciens, bénévoles : chaque rôle compte.</p><div class="member-grid"><div class="member">Comédiennes</div><div class="member">Comédiens</div><div class="member">Mise en scène</div><div class="member">Bénévoles</div></div></div></section>
+    <section class="members" id="membres"><div class="wrap"><p class="overline">03 — La troupe</p><h2 class="section-title">La compagnie</h2><p class="lead">Comédiens, metteuses en scène, techniciens, bénévoles : chaque rôle compte.</p><div class="member-grid" id="comediens-list"></div></div></section>
     <section class="contact" id="contact"><div class="wrap contact-box"><div><p class="overline">04 — Contact</p><h2 class="section-title">Contact</h2><div class="info"><p>📧 contact@lacrevetterose.fr</p><p>📍 France</p><p>🎭 Programmation, adhésion, partenariat ou simple question.</p></div></div><form class="form"><input placeholder="Votre nom"><input placeholder="Votre email"><textarea placeholder="Votre message"></textarea><button type="button">Envoyer le message</button></form></div></section>
   </main>
   <a href="#accueil" class="back-top" aria-label="Retour en haut">↑</a>
@@ -79,6 +79,25 @@ container.innerHTML += `
 `;
     });
 
+  });
+</script>
+<script>
+fetch('comediens.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.querySelector('#comediens-list');
+    container.innerHTML = '';
+
+    data.forEach(personne => {
+      container.innerHTML += `
+        <article class="comedien-card">
+          <img src="${personne.photo}" alt="${personne.nom}">
+          <h3>${personne.nom}</h3>
+          <p class="role">${personne.role}</p>
+          <p>${personne.description}</p>
+        </article>
+      `;
+    });
   });
 </script>
 </body>
