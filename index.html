@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Crevette Rose</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="fixed-set">
+<div class="fixed-drape fixed-left"></div>
+<div class="fixed-drape fixed-right"></div>
+</div>
+
+<header>
+<nav>
+<a class="brand" href="#">La Crevette Rose</a>
+<div class="links">
+<a href="#spectacles">Spectacles</a>
+</div>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-grid">
+
+<div>
+<p class="kicker">Troupe de théâtre</p>
+<h1>La Crevette <span>Rose</span></h1>
+
+<p class="tagline">
+Petite troupe, grandes émotions.
+</p>
+
+<div class="cta">
+<a class="btn main" href="#spectacles">Voir les spectacles</a>
+</div>
+</div>
+
+<img class="poster" src="logo-la-crevette-rose.png">
+
+</div>
+</section>
+
+<section class="shows" id="spectacles">
+
+<div class="wrap">
+
+<p class="overline">02 — Programmation</p>
+<h2 class="section-title">Spectacles</h2>
+
+<div class="cards"></div>
+
+</div>
+
+</section>
+
+<a href="#" class="back-top">↑</a>
+
+<script>
+fetch('spectacles.json')
+.then(response => response.json())
+.then(data => {
+
+const container = document.querySelector('.cards');
+
+data.forEach((spectacle,index) => {
+
+container.innerHTML += `
+<article class="card">
+
+<img class="show-poster"
+src="${spectacle.image}"
+alt="${spectacle.titre}">
+
+<div class="card-content">
+
+<div class="num">
+${(index + 1).toString().padStart(2,'0')}
+</div>
+
+<h3>${spectacle.titre}</h3>
+
+<p>${spectacle.description}</p>
+
+<div class="card-meta">
+<p><strong>De :</strong> ${spectacle.auteur}</p>
+<p><strong>Date :</strong> ${spectacle.date}</p>
+<p><strong>Lieu :</strong> ${spectacle.lieu}</p>
+</div>
+
+</div>
+
+</article>
+`;
+
+});
+
+});
+</script>
+
+</body>
+</html>
