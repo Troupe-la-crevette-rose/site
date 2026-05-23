@@ -1,8 +1,9 @@
 [
   {
-    "nom": "Prénom Nom",
-    "role": "Comédienne",
+    "nom": "Lacombe Nelly",
+    "role": "Comédienne / Metteur en scène",
     "description": "Quelques mots sur la personne.",
-    "photo": "comediens/prenom-nom.jpg"
+    "photo": "comediens/nelly.png
+    "
   }
 ]
