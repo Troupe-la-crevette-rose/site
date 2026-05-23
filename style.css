@@ -691,14 +691,15 @@ footer{
 .card{
   display:grid;
   grid-template-columns:260px 1fr;
-  gap:32px;
+  gap:60px;
   align-items:start;
 }
 
 .show-poster{
-  width:260px;
-  height:360px;
+  width:285px;
+  height:auto;
   object-fit:cover;
+  margin-top: 25px;
 }
 
 .card-content{
