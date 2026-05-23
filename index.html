@@ -100,5 +100,29 @@ fetch('comediens.json')
     });
   });
 </script>
+  <script>
+document.addEventListener('click', function(e){
+
+  if(e.target.classList.contains('show-poster')){
+
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox';
+
+    overlay.innerHTML = `
+      <img src="${e.target.src}" alt="">
+    `;
+
+    document.body.appendChild(overlay);
+
+    overlay.addEventListener('click', () => {
+      overlay.classList.add('close');
+
+      setTimeout(() => {
+        overlay.remove();
+      },250);
+    });
+  }
+});
+</script>
 </body>
 </html>
