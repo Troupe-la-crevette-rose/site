@@ -212,7 +212,7 @@ header{
     linear-gradient(
       #08090bee,
       #08090b9c,
-      transparent
+       #000000
     );
 }
 
@@ -755,4 +755,29 @@ footer{
   .show-poster{
     max-height:none;
   }
+}
+.comedien-card{
+  border:1px solid var(--line);
+  background:linear-gradient(145deg,rgba(255,240,223,.08),rgba(228,111,134,.08));
+  padding:22px;
+  text-align:center;
+}
+
+.comedien-card img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  margin-bottom:18px;
+}
+
+.comedien-card h3{
+  margin:0;
+  font-size:26px;
+  color:var(--cream);
+}
+
+.comedien-card .role{
+  color:var(--rose2);
+  font-family:'Bebas Neue';
+  letter-spacing:.1em;
 }
