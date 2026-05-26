@@ -831,3 +831,16 @@ footer{
     opacity:0;
   }
 }
+.form-message{
+  margin:0;
+  font-size:16px;
+  line-height:1.5;
+}
+
+.form-message.success{
+  color:#ff8ba0;
+}
+
+.form-message.error{
+  color:#ff4d6d;
+}
