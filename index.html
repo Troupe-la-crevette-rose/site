@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
   <div class="fixed-set" aria-hidden="true">
@@ -40,6 +41,7 @@
   action="https://formspree.io/f/mjgzazpk"
   method="POST"
 >
+
   <input 
     type="text"
     name="nom"
@@ -66,18 +68,23 @@
     value="Nouveau message - La Crevette Rose"
   >
 
-  <!-- anti-spam invisible -->
   <input 
     type="text"
     name="_gotcha"
     style="display:none"
   >
 
+  <div 
+    class="g-recaptcha"
+    data-sitekey="6LcaY_0sAAAAAO9LuO0ltwS1TmSWvUw_xPc8fliu"
+  ></div>
+
   <button type="submit">
     Envoyer le message
   </button>
 
   <p id="form-message" class="form-message"></p>
+
 </form>
     
     </div></section>
