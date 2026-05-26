@@ -861,3 +861,55 @@ footer{
 .form-message.error{
   color:#ff4d6d;
 }
+.legal{
+  background:rgba(8,9,11,.86);
+  backdrop-filter:blur(2px);
+}
+
+.legal-content{
+  max-width:900px;
+  border:1px solid var(--line);
+  background:linear-gradient(
+    145deg,
+    rgba(255,240,223,.08),
+    rgba(228,111,134,.08)
+  );
+  padding:34px;
+  box-shadow:0 24px 60px rgba(0,0,0,.28);
+}
+
+.legal-content h3{
+  margin:28px 0 10px;
+  color:var(--rose2);
+  font-size:26px;
+}
+
+.legal-content h3:first-child{
+  margin-top:0;
+}
+
+.legal-content p{
+  margin:0 0 16px;
+  color:#ffe2dd;
+  line-height:1.75;
+  font-size:18px;
+}
+
+.legal-content strong{
+  color:var(--cream);
+}
+
+.legal-update{
+  margin-top:28px;
+  font-size:15px;
+  color:#d9b7b2;
+}
+
+footer a{
+  color:var(--rose2);
+  text-decoration:none;
+}
+
+footer a:hover{
+  text-decoration:underline;
+}
