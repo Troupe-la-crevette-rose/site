@@ -34,30 +34,50 @@
     <section class="contact" id="contact"><div class="wrap contact-box"><div><p class="overline">04 — Contact</p><h2 class="section-title">Contact</h2><div class="info"><p>📧 troupedelacrevetterose@gmail.com
 </p><p>📍 06.61.49.97.12</p><p>🎭 Programmation, adhésion, partenariat ou simple question.</p></div></div>
       
-      <form 
+     <form 
   class="form"
+  id="contact-form"
   action="https://formspree.io/f/mjgzazpk"
   method="POST"
 >
+  <input 
+    type="text"
+    name="nom"
+    placeholder="Votre nom"
+    required
+  >
 
-  <input type="text" name="nom" placeholder="Votre nom" required>
+  <input 
+    type="email"
+    name="email"
+    placeholder="Votre email"
+    required
+  >
 
-  <input type="email" name="email" placeholder="Votre email" required>
+  <textarea 
+    name="message"
+    placeholder="Votre message"
+    required
+  ></textarea>
 
-  <textarea name="message" placeholder="Votre message" required></textarea>
+  <input 
+    type="hidden"
+    name="_subject"
+    value="Nouveau message - La Crevette Rose"
+  >
 
-  <input type="hidden" name="_subject" value="Nouveau message - La Crevette Rose">
-
-  <input type="hidden" name="_next" value="https://troupe-la-crevette-rose.github.io/site/#contact">
-
-  <input type="hidden" name="_captcha" value="false">
-
-  <input type="text" name="_gotcha" style="display:none">
+  <!-- anti-spam invisible -->
+  <input 
+    type="text"
+    name="_gotcha"
+    style="display:none"
+  >
 
   <button type="submit">
     Envoyer le message
   </button>
 
+  <p id="form-message" class="form-message"></p>
 </form>
     
     </div></section>
@@ -150,6 +170,41 @@ document.addEventListener('click', function(e){
         overlay.remove();
       },250);
     });
+  }
+});
+</script>
+  <script>
+const form = document.querySelector('#contact-form');
+const message = document.querySelector('#form-message');
+
+form.addEventListener('submit', async function(event){
+  event.preventDefault();
+
+  const data = new FormData(form);
+
+  try{
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if(response.ok){
+      message.textContent = "Merci, votre message a bien été envoyé.";
+      message.classList.add('success');
+      message.classList.remove('error');
+      form.reset();
+    }else{
+      message.textContent = "Une erreur est survenue. Merci de réessayer.";
+      message.classList.add('error');
+      message.classList.remove('success');
+    }
+  }catch(error){
+    message.textContent = "Impossible d’envoyer le message pour le moment.";
+    message.classList.add('error');
+    message.classList.remove('success');
   }
 });
 </script>
