@@ -867,7 +867,7 @@ footer{
 }
 
 .legal-content{
-  max-width:900px;
+  
   border:1px solid var(--line);
   background:linear-gradient(
     145deg,
